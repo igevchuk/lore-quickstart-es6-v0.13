@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'lore-hook-connect';
+import PayloadStates from '../constants/PayloadStates';
 import Tweet from './Tweet';
 
 class Feed extends React.Component {
@@ -13,6 +14,17 @@ class Feed extends React.Component {
 
   render() {
     const { tweets } = this.props;
+
+    if (tweets.state === PayloadStates.FETCHING) {
+      return (
+        <div className="feed">
+          <h2 className="title">
+            Feed
+          </h2>
+          <div className="loader"/>
+        </div>
+      );
+    }
 
     return (
       <div className="feed">
