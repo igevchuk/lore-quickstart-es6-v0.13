@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Tweet from './Tweet';
 
 class Feed extends React.Component {
 
   renderTweet(tweet) {
     return (
-      <li key={tweet.id}>
-        {tweet.data.text}
-      </li>
+      <Tweet key={tweet.id} tweet={tweet} />
     );
   }
 
