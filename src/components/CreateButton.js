@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import _ from 'lodash';
+import CreateTweetDialog from './CreateTweetDialog';
 
 class CreateButton extends React.Component {
 
@@ -9,11 +11,16 @@ class CreateButton extends React.Component {
   }
 
   onClick() {
+    const { user } = this.context;
+
     lore.dialog.show(function() {
       return lore.dialogs.tweet.create({
         blueprint: 'optimistic',
         request: function(data) {
-          return lore.actions.tweet.create(data).payload;
+          return lore.actions.tweet.create(_.defaults({
+            user: user.id,
+            createdAt: new Date().toISOString()
+          }, data)).payload;
         }
       });
     });
@@ -31,5 +38,9 @@ class CreateButton extends React.Component {
   }
 
 }
+
+CreateButton.contextTypes = {
+  user: PropTypes.object.isRequired
+};
 
 export default CreateButton;
