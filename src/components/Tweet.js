@@ -4,6 +4,7 @@ import moment from 'moment';
 import { connect } from 'lore-hook-connect';
 import EditLink from './EditLink';
 import DeleteLink from './DeleteLink';
+import IsOwner from './IsOwner';
 
 class Tweet extends React.Component {
 
@@ -28,10 +29,12 @@ class Tweet extends React.Component {
           <p className="list-group-item-text text">
             {tweet.data.text}
           </p>
-          <div className="tweet-actions">
-            <EditLink tweet={tweet} />
-            <DeleteLink tweet={tweet} />
-          </div>
+          <IsOwner tweet={tweet}>
+            <div className="tweet-actions">
+              <EditLink tweet={tweet} />
+              <DeleteLink tweet={tweet} />
+            </div>
+          </IsOwner>
         </div>
       </li>
     );

@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import UserCanEditTweet from '../decorators/UserCanEditTweet';
 
 class EditLink extends React.Component {
 
@@ -36,4 +35,4 @@ EditLink.propTypes = {
   tweet: PropTypes.object.isRequired
 };
 
-export default UserCanEditTweet(EditLink);
+export default EditLink;
