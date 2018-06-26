@@ -33,6 +33,17 @@ class Master extends React.Component {
       );
     }
 
+    if (user.state === PayloadStates.ERROR_FETCHING) {
+      return (
+        <div>
+          <RemoveLoadingScreen />
+          <h1 className="full-page-text">
+            Unauthorized
+          </h1>
+        </div>
+      );
+    }
+
     return (
       <div>
         <RemoveLoadingScreen />
