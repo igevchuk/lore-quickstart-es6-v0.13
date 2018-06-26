@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import { connect } from 'lore-hook-connect';
 import EditLink from './EditLink';
+import DeleteLink from './DeleteLink';
 
 class Tweet extends React.Component {
 
@@ -29,6 +30,7 @@ class Tweet extends React.Component {
           </p>
           <div className="tweet-actions">
             <EditLink tweet={tweet} />
+            <DeleteLink tweet={tweet} />
           </div>
         </div>
       </li>
