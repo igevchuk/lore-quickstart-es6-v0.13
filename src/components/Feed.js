@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'lore-hook-connect';
 import Tweet from './Tweet';
 
 class Feed extends React.Component {
@@ -52,4 +53,8 @@ Feed.defaultProps = (function() {
   };
 })();
 
-export default Feed;
+export default connect(function(getState, props) {
+  return {
+    tweets: getState('tweet.find')
+  };
+})(Feed);
