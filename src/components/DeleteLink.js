@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import UserCanDeleteTweet from '../decorators/UserCanDeleteTweet';
 
 class DeleteLink extends React.Component {
 
@@ -35,4 +36,4 @@ DeleteLink.propTypes = {
   tweet: PropTypes.object.isRequired
 };
 
-export default DeleteLink;
+export default UserCanDeleteTweet(DeleteLink);
